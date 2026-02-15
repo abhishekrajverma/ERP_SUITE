@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "ERP.HumanResources.Api.Controllers.EmployeesController",
+    "Method": "GetEmployees",
+    "RelativePath": "api/employees",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

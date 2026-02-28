@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ERP.HumanResources.Application.DTOs
 {
-    internal class EmployeeUpdateDto
+    public class EmployeeUpdateDto
     {
+        public string FullName { get; set; }
+        public string Department { get; set; }
+        public string Designation { get; set; }
+        public bool IsActive { get; set; } = false;
     }
 }

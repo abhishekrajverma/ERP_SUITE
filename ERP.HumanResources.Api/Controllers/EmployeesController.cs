@@ -1,21 +1,32 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ERP.HumanResources.Application.DTOs;
+using ERP.HumanResources.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERP.HumanResources.Api.Controllers;
 
-//[Authorize] // 🔐 THIS IS THE CONNECTION
 [ApiController]
 [Route("api/employees")]
+[Authorize(Roles = "Admin,HR")]
 public class EmployeesController : ControllerBase
 {
-    [HttpGet]
-    [Authorize(Roles = "Admin,HR")]
-    public IActionResult GetEmployees()
+    private readonly IEmployeeService _service;
+
+    public EmployeesController(IEmployeeService service)
     {
-        return Ok(new[]
-        {
-            new { Id = 1, Name = "Rahul", Department = "IT" },
-            new { Id = 2, Name = "Anita", Department = "HR" }
-        });
+        _service = service;
+    }
+
+    [HttpGet]
+    public IActionResult Get()
+    {
+        return Ok(_service.GetAll());
+    }
+
+    [HttpPost]
+    [Authorize(Roles = "Admin")]
+    public IActionResult Create(EmployeeCreateDto dto)
+    {
+        return Ok(_service.Create(dto));
     }
 }

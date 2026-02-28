@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="IppDotNetSdkForQuickBooksApiV3" Version="14.7.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ERP.HumanResources.Domain\ERP.HumanResources.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,12 @@
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\bin\Debug\net8.0\ERP.HumanResources.Domain.deps.json
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\bin\Debug\net8.0\ERP.HumanResources.Domain.dll
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\bin\Debug\net8.0\ERP.HumanResources.Domain.pdb
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\obj\Debug\net8.0\ERP.HumanResources.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\obj\Debug\net8.0\ERP.HumanResources.Domain.AssemblyInfoInputs.cache
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\obj\Debug\net8.0\ERP.HumanResources.Domain.AssemblyInfo.cs
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\obj\Debug\net8.0\ERP.HumanResources.Domain.csproj.CoreCompileInputs.cache
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\obj\Debug\net8.0\ERP.HumanResources.Domain.sourcelink.json
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\obj\Debug\net8.0\ERP.HumanResources.Domain.dll
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\obj\Debug\net8.0\refint\ERP.HumanResources.Domain.dll
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\obj\Debug\net8.0\ERP.HumanResources.Domain.pdb
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Domain\obj\Debug\net8.0\ref\ERP.HumanResources.Domain.dll

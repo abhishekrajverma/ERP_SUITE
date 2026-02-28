@@ -41,3 +41,4 @@ C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Api\obj\Debug\net8.0\refint\ERP.Hu
 C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Api\obj\Debug\net8.0\ERP.HumanResources.Api.pdb
 C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Api\obj\Debug\net8.0\ERP.HumanResources.Api.genruntimeconfig.cache
 C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Api\obj\Debug\net8.0\ref\ERP.HumanResources.Api.dll
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Api\obj\Debug\net8.0\ERP.HumanResources.Api.sourcelink.json

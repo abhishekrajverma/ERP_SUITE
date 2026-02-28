@@ -12,8 +12,8 @@ public class EmployeeService : IEmployeeService
 
     public IEnumerable<Employee> GetAll() => _employees;
 
-    public Employee GetById(int id) =>
-        _employees.FirstOrDefault(e => e.Id == id);
+    public Employee GetById(int id) =>  
+        _employees.FirstOrDefault(e => e.Id == id.ToString());
 
     public Employee Create(EmployeeCreateDto dto)
     {

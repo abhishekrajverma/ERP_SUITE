@@ -1,3 +1,5 @@
+using ERP.HumanResources.Application.Interfaces;
+using ERP.HumanResources.Application.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -32,6 +34,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
+
+// Register application services 
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 var app = builder.Build();
 

@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Core.Api", "ERP.Core.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.HumanResources.Api", "..\ERP.HumanResources.Api\ERP.HumanResources.Api.csproj", "{A35872AC-5455-4847-85BE-0B1D20227C6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Shared", "..\ERP.Shared\ERP.Shared.csproj", "{DF628DDE-7FA7-492B-87AC-405F5E2A1AD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.HumanResources.Application", "..\ERP.HumanResources.Application\ERP.HumanResources.Application.csproj", "{4F5E10C8-7AAF-4F1B-A2AE-054A6D60CB4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.HumanResources.Domain", "..\ERP.HumanResources.Domain\ERP.HumanResources.Domain.csproj", "{52120FF8-EF35-4E0B-90F9-0069CCCBEAD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,14 @@ Global
 		{A35872AC-5455-4847-85BE-0B1D20227C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A35872AC-5455-4847-85BE-0B1D20227C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A35872AC-5455-4847-85BE-0B1D20227C6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF628DDE-7FA7-492B-87AC-405F5E2A1AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF628DDE-7FA7-492B-87AC-405F5E2A1AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF628DDE-7FA7-492B-87AC-405F5E2A1AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF628DDE-7FA7-492B-87AC-405F5E2A1AD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F5E10C8-7AAF-4F1B-A2AE-054A6D60CB4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F5E10C8-7AAF-4F1B-A2AE-054A6D60CB4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F5E10C8-7AAF-4F1B-A2AE-054A6D60CB4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F5E10C8-7AAF-4F1B-A2AE-054A6D60CB4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52120FF8-EF35-4E0B-90F9-0069CCCBEAD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52120FF8-EF35-4E0B-90F9-0069CCCBEAD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52120FF8-EF35-4E0B-90F9-0069CCCBEAD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52120FF8-EF35-4E0B-90F9-0069CCCBEAD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,6 @@
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Application\obj\Debug\net8.0\ERP.HumanResources.Application.csproj.AssemblyReference.cache
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Application\obj\Debug\net8.0\ERP.HumanResources.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Application\obj\Debug\net8.0\ERP.HumanResources.Application.AssemblyInfoInputs.cache
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Application\obj\Debug\net8.0\ERP.HumanResources.Application.AssemblyInfo.cs
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Application\obj\Debug\net8.0\ERP.HumanResources.Application.csproj.CoreCompileInputs.cache
+C:\Users\rajab\Desktop\ERP\ERP.HumanResources.Application\obj\Debug\net8.0\ERP.HumanResources.Application.sourcelink.json

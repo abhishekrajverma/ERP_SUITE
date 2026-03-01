@@ -7,7 +7,7 @@ namespace ERP.HumanResources.Api.Controllers;
 
 [ApiController]
 [Route("api/employees")]
-[Authorize(Roles = "Admin,HR")]
+//[Authorize(Roles = "Admin,HR")]
 public class EmployeesController : ControllerBase
 {
     private readonly IEmployeeService _service;
@@ -24,7 +24,7 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public IActionResult Create(EmployeeCreateDto dto)
     {
         return Ok(_service.Create(dto));

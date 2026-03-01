@@ -8,11 +8,12 @@ namespace ERP.HumanResources.Application.DTOs
 {
     public class EmployeeCreateDto
     {
-        public string EmployeeCode { get; set; }
-        public string FullName { get; set; }
-        public string Email { get; set; }
+        public int Id { get; set; }
+        public string EmployeeCode { get; set; } = string.Empty;
+        public string FullName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         public string Department { get; set; } = string.Empty;
-        public string Designation { get; set; }
+        public string Designation { get; set; } = string.Empty;
         public DateTime DateOfJoining { get; set; }
     }
 }

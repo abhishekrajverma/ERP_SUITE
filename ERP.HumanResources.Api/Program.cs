@@ -1,12 +1,24 @@
 using ERP.HumanResources.Application.Interfaces;
 using ERP.HumanResources.Application.Services;
+using ERP.HumanResources.Infrastructure.Persistence;
+using ERP.HumanResources.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// Configure Entity Framework Core with SQL Server
+builder.Services.AddDbContext<HrDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("HrDb")));
+
+// Register repositories and services
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -35,8 +47,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-// Register application services 
+// Register application services
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
 
 var app = builder.Build();
 

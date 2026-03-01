@@ -8,9 +8,9 @@ namespace ERP.HumanResources.Application.DTOs
 {
     public class EmployeeUpdateDto
     {
-        public string FullName { get; set; }
-        public string Department { get; set; }
-        public string Designation { get; set; }
+        public string FullName { get; set; } = string.Empty;
+        public string Department { get; set; } = string.Empty;
+        public string Designation { get; set; } = string.Empty;
         public bool IsActive { get; set; } = false;
     }
 }

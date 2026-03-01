@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ERP.HumanResources.Application.DTOs;
-using ERP.HumanResources.Domain.Entities;
-using Intuit.Ipp.Data;
+﻿using ERP.HumanResources.Application.DTOs;
 
-namespace ERP.HumanResources.Application.Interfaces
+namespace ERP.HumanResources.Application.Interfaces;
+
+public interface IEmployeeService
 {
-    public interface IEmployeeService
-    {
-        IEnumerable<Employee> GetAll();
-        Employee GetById(int id);
-        Employee Create(EmployeeCreateDto dto);
-        void Update(int id, EmployeeUpdateDto dto);
-        void Delete(int id);
-    }
+    IEnumerable<EmployeeCreateDto> GetAll();
+    EmployeeCreateDto Create(EmployeeCreateDto dto);
 }

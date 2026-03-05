@@ -1,8 +1,8 @@
-﻿namespace ERP.Core.Api.Models
+﻿namespace ERP.Core.Api.Contracts.Auth
 {
     public class LoginRequest
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string? Username { get; set; }
+        public string? Password { get; set; }
     }
 }

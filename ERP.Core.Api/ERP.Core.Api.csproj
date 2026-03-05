@@ -7,9 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.24" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.16.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ERP.HumanResources.Application\ERP.HumanResources.Application.csproj" />
+    <ProjectReference Include="..\ERP.HumanResources.Infrastructure\ERP.HumanResources.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

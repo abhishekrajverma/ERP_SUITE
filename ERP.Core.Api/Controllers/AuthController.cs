@@ -1,4 +1,4 @@
-﻿using ERP.Core.Api.Models;
+﻿using ERP.Core.Api.Contracts.Auth;
 using ERP.Core.Api.Services;
 using Microsoft.AspNetCore.Mvc;
 

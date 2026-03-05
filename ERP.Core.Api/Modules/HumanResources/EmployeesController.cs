@@ -3,7 +3,8 @@ using ERP.HumanResources.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ERP.HumanResources.Api.Controllers;
+namespace ERP.Core.Api.Controllers.modules.HumanResources;
+
 
 [ApiController]
 [Route("api/employees")]

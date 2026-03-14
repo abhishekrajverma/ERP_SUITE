@@ -34,8 +34,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 // Database (HR Module)
 // -----------------------------
 builder.Services.AddDbContext<HrDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("HrDb")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("HRConnection")));
 
 
 // -----------------------------

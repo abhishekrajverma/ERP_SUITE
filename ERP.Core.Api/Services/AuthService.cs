@@ -28,6 +28,9 @@ namespace ERP.Core.Api.Services
             new Claim(ClaimTypes.Name, request.Username),
             new Claim(ClaimTypes.Role, "Admin")
         };
+            // Ensure the JWT key is configured before generating the token 
+            if (string.IsNullOrEmpty(_jwt.Key))
+                throw new InvalidOperationException("JWT key is not configured.");
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

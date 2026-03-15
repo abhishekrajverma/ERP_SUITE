@@ -1,3 +1,5 @@
+using dotenv.net;
+
 using ERP.Core.Api.Services;
 using ERP.Core.Api.Settings;
 
@@ -11,7 +13,46 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
+// Load environment variables from .env file
+DotEnv.Load();
+
 var builder = WebApplication.CreateBuilder(args);
+
+// -----------------------------
+// Load JWT settings from environment variables
+var jwtSettings = new JwtSettings
+{
+    Key = Environment.GetEnvironmentVariable("JWT_KEY"),
+    Issuer = Environment.GetEnvironmentVariable("JWT_ISSUER"),
+    Audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE"),
+    ExpiryMinutes = int.Parse(Environment.GetEnvironmentVariable("JWT_EXPIRY_MINUTES") ?? "60")
+};
+
+// Debug: print the JWT key to verify it's loaded (remove in production!)
+if (string.IsNullOrEmpty(jwtSettings.Key) || string.IsNullOrEmpty(jwtSettings.Issuer) || string.IsNullOrEmpty(jwtSettings.Audience))
+{
+   throw new Exception("JWT settings are not properly configured in environment variables.");
+}
+else
+{
+    Console.WriteLine($"JWT Key Loaded: {(string.IsNullOrEmpty(jwtSettings.Key) ? "No" : "Yes")}");
+    Console.WriteLine($"JWT Issuer Loaded: {(string.IsNullOrEmpty(jwtSettings.Issuer) ? "No" : "Yes")}");
+    Console.WriteLine($"JWT Audience Loaded: {(string.IsNullOrEmpty(jwtSettings.Audience) ? "No" : "Yes")}");
+}
+
+// 🔗 Build DB connection string from environment variables
+var connectionString =
+    $"Server=tcp:{Environment.GetEnvironmentVariable("DB_SERVER")},1433;" +
+    $"Initial Catalog={Environment.GetEnvironmentVariable("DB_HR")};" +
+    $"User ID={Environment.GetEnvironmentVariable("DB_USER")};" +
+    $"Password={Environment.GetEnvironmentVariable("DB_PASSWORD")};" +
+    $"Encrypt=True;";
+
+// check if connection string is properly built 
+if (string.IsNullOrEmpty(connectionString))
+{
+    throw new Exception("Database connection string is not properly configured in environment variables.");
+}
 
 // Add controllers
 builder.Services.AddControllers();
@@ -20,12 +61,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-// -----------------------------
-// JWT Settings
-// -----------------------------
-builder.Services.Configure<JwtSettings>(
-    builder.Configuration.GetSection("JwtSettings"));
+// ------------------------------
+// Configure JWT settings for DI this allows us to inject IOptions<JwtSettings> in our services and controllers to access the JWT configuration values 
+builder.Services.Configure<JwtSettings>(options =>
+{
+    options.Key = jwtSettings.Key;
+    options.Issuer = jwtSettings.Issuer;
+    options.Audience = jwtSettings.Audience;
+    options.ExpiryMinutes = jwtSettings.ExpiryMinutes;
+});
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 
@@ -34,8 +78,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 // Database (HR Module)
 // -----------------------------
 builder.Services.AddDbContext<HrDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("HRConnection")));
-
+    options.UseSqlServer(connectionString));
 
 // -----------------------------
 // HR Module Services
@@ -57,10 +100,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
 
-            ValidIssuer = "ERP.Core",
-            ValidAudience = "ERP.Users",
+            ValidIssuer = jwtSettings.Issuer,
+            ValidAudience = jwtSettings.Audience,
             IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes("THIS_IS_A_VERY_SECRET_KEY_CHANGE_LATER")),
+                Encoding.UTF8.GetBytes(jwtSettings.Key)),
 
             ClockSkew = TimeSpan.Zero
         };

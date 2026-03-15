@@ -26,6 +26,7 @@ public class EmployeesController : ControllerBase
 
     [HttpPost]
     //[Authorize(Roles = "Admin")]
+    [AllowAnonymous]
     public IActionResult Create(EmployeeCreateDto dto)
     {
         return Ok(_service.Create(dto));

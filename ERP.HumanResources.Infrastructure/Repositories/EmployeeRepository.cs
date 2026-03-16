@@ -1,6 +1,7 @@
 ﻿using ERP.HumanResources.Application.Interfaces;
 using ERP.HumanResources.Domain.Entities;
 using ERP.HumanResources.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace ERP.HumanResources.Infrastructure.Repositories;
 
@@ -21,9 +22,24 @@ public class EmployeeRepository : IEmployeeRepository  // ← changed
 
     public Employee Add(Employee employee)
     {
-        _context.Employees.Add(employee);
-        _context.SaveChanges();
-        return employee;
+        try
+        {
+            _context.Employees.Add(employee);
+            _context.SaveChanges();
+            return employee;
+        }
+        catch (DbUpdateException ex)
+        {
+            var message = ex.InnerException?.Message ?? "";
+
+            if (message.Contains("IX_Employees_Email"))
+                throw new Exception("Email already exists.");
+
+            if (message.Contains("IX_Employees_Phone"))
+                throw new Exception("Phone number already exists.");
+
+            throw; // rethrow if it’s some other DB problem
+        }
     }
 
     public void Update(Employee employee)

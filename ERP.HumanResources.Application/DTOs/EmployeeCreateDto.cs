@@ -14,6 +14,7 @@ namespace ERP.HumanResources.Application.DTOs
         public string Email { get; set; } = string.Empty;
         public string Department { get; set; } = string.Empty;
         public string Designation { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
         public DateTime DateOfJoining { get; set; }
     }
 }

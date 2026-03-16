@@ -21,9 +21,14 @@ public class EmployeeService : IEmployeeService
             FullName = e.FullName,
             Email = e.Email,
             Department = e.Department,
-            Designation = e.Designation
+            Designation = e.Designation,
+            Phone = e.Phone,
+            DateOfJoining = e.DateOfJoining
+
         });
 
+
+    // 
     public EmployeeCreateDto Create(EmployeeCreateDto dto)
     {
         var employee = new Employee
@@ -32,8 +37,11 @@ public class EmployeeService : IEmployeeService
             FullName = dto.FullName,
             Email = dto.Email,
             Department = dto.Department,
-            Designation = dto.Designation
+            Designation = dto.Designation,
+            Phone = dto.Phone,
+            DateOfJoining = dto.DateOfJoining
         };
+        
 
         var created = _repo.Add(employee);
 
@@ -44,7 +52,9 @@ public class EmployeeService : IEmployeeService
             FullName = created.FullName,
             Email = created.Email,
             Department = created.Department,
-            Designation = created.Designation
+            Designation = created.Designation,
+            Phone = created.Phone,
+            DateOfJoining = created.DateOfJoining
         };
     }
 }

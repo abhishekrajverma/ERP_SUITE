@@ -25,10 +25,20 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpPost]
-    //[Authorize(Roles = "Admin")]
     [AllowAnonymous]
     public IActionResult Create(EmployeeCreateDto dto)
     {
-        return Ok(_service.Create(dto));
+        try
+        {
+            var result = _service.Create(dto);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new
+            {
+                message = ex.Message
+            });
+        }
     }
 }

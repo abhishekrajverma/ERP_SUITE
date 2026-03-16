@@ -8,4 +8,6 @@ public class Employee
     public required string Email { get; set; }
     public required string Department { get; set; }
     public required string Designation { get; set; }
+    public required string Phone { get; set; }
+    public DateTime DateOfJoining { get; set; }
 }

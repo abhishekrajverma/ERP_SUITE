@@ -54,6 +54,8 @@ if (string.IsNullOrEmpty(connectionString))
     throw new Exception("Database connection string is not properly configured in environment variables.");
 }
 
+
+
 // Add controllers
 builder.Services.AddControllers();
 
@@ -111,6 +113,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
+// configure CORS to allow requests from the React frontend (adjust the URL as needed)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReact",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173") // your React URL
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 
 // -----------------------------
 // Build App
@@ -128,6 +142,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Enable CORS before authentication and authorization middleware to ensure that CORS headers are included in responses, even for unauthorized requests. This allows the React frontend to receive appropriate CORS headers and handle responses correctly.
+app.UseCors("AllowReact");
 
 app.UseAuthentication();
 app.UseAuthorization();
